@@ -33,14 +33,14 @@ The default search directories are in this order (1) /usr/local/include,  (2) /u
 ```
 # this is a one goal from the goals in a make file
 
-target ... : prerequisites     -----------------------
+targets ... : prerequisites ... <----------------------->
   ... recipe                   # all recipe (shell commands and process) are passed to the shell directly
   ... ...                      # so recipe syntax should should follow ✅ shell scripting not  ❌ makefile syntax
 ```                             
 
 or 
 ```
-target ... : prerequisites ; recipe
+targets ... : prerequisites ...; recipe
   ...  recipe
   ... ... 
 ```
