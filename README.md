@@ -44,7 +44,7 @@ target ... : prerequisites ; recipe
   ...  recipe
   ... ... 
 ```
-or single line using variable
+or single line using variable expansion
 ```
 myrule = target : ; echo built
 
