@@ -40,11 +40,16 @@ target ... : prerequisites     -----------------------
 
 or 
 ```
-targets : prerequisites ; recipe
+target ... : prerequisites ; recipe
   ...  recipe
   ... ... 
 ```
+or single line using variable
+```
+myrule = target : ; echo built
 
+$(myrule)
+```
 
 ## Make command options
 
