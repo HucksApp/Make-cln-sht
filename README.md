@@ -55,10 +55,6 @@ $(myrule)
 
 option                               |   Description
 -------------------------------------|-------------------------------------
-`-f` or  `--file `                   | 
-`-t` or `--touch `                   |
-`-q` or `--question`                 |
-`-n` or `--just-print`               |
 `-C dir` or  `--directory=dir`       | Change to directory dir before reading the makefiles
 `-d` or `--debug[=options]`          |  Print debugging information in addition to normal processing.
 ➖                                   |  options `a` all -> all types of debugging output are enabled. This is equivalent to using `-d'.
@@ -93,14 +89,6 @@ option                               |   Description
 
 
 
-
-
-
-
-
-
-
-
 ## Make Variable
 
 * Declare ->  `var1 = text text text` or   `r = text text text`
@@ -113,6 +101,50 @@ option                               |   Description
   *  `::=`
   *  `:::=`
 * reference -> `$(var1)  ` or  `${var1}` and `$(r)` or `${r}` or can only be a letter not word if referenced withouth -> {}, () ✅ `$r` but not ❌ `$var1`
+
+```
+Variable definitions are parsed as follows:
+
+immediate = deferred
+immediate ?= deferred
+immediate := immediate
+immediate ::= immediate
+immediate :::= immediate-with-escape
+immediate += deferred or immediate
+immediate != immediate
+
+define immediate
+  deferred
+endef
+
+define immediate =
+  deferred
+endef
+
+define immediate ?=
+  deferred
+endef
+
+define immediate :=
+  immediate
+endef
+
+define immediate ::=
+  immediate
+endef
+
+define immediate :::=
+  immediate-with-escape
+endef
+
+define immediate +=
+  deferred or immediate
+endef
+
+define immediate !=
+  immediate
+endef
+```
 
 ## Make Function
 * Declare ->  
