@@ -38,6 +38,14 @@ target ... : prerequisites     -----------------------
   ... ...                      # so recipe syntax should should follow ✅ shell scripting not  ❌ makefile syntax
 ```                             
 
+or 
+```
+targets : prerequisites ; recipe
+  ...  recipe
+  ... ... 
+```
+
+
 ## Make command options
 
 option                               |   Description
@@ -96,6 +104,9 @@ option                               |   Description
   *  `:=` simply expanded  ->  value can be another variable or function call ✅  `var2 := $(var1) text` and ✅ `var2 := text text`
   *  `+=` appending assignment -> append the new value to the end of old value `var1 += new value`
   *  `?=`  conditional assignment ->  set to a value to a variable only if variable is not already set `var1 ?= value`
+  *  `!=`
+  *  `::=`
+  *  `:::=`
 * reference -> `$(var1)  ` or  `${var1}` and `$(r)` or `${r}` or can only be a letter not word if referenced withouth -> {}, () ✅ `$r` but not ❌ `$var1`
 
 ## Make Function
