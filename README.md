@@ -101,10 +101,9 @@ option                               |   Description
   *  `::=`
   *  `:::=`
 * reference -> `$(var1)  ` or  `${var1}` and `$(r)` or `${r}` or can only be a letter not word if referenced withouth -> {}, () ✅ `$r` but not ❌ `$var1`
+* reference in recipe ->  recipes are passed to the shell  directly, syntax should be in shell, passing a variable from make to shell ✅ -> $${var1} , $$(var1)
 
 ```
-Variable definitions are parsed as follows:
-
 immediate = deferred
 immediate ?= deferred
 immediate := immediate
@@ -112,7 +111,12 @@ immediate ::= immediate
 immediate :::= immediate-with-escape
 immediate += deferred or immediate
 immediate != immediate
+```
 
+The Variable definitions are parsed by make as follows:
+
+using the ***define*** directive.
+```
 define immediate
   deferred
 endef
