@@ -115,7 +115,7 @@ immediate != immediate
 
 The Variable definitions are parsed by make as follows:
 
-using the ***define*** directive.
+using the ***define*** directive<a name="define_d"></a>  
 ```
 define immediate
   deferred
@@ -185,7 +185,6 @@ else
 endif
 ```
 
-
 ### override Directive
 ```
 override variable = value
@@ -199,6 +198,8 @@ To append more text to a variable defined on the command line, use:
 override variable += more text
 ```
 
+### Define Directive
+ [define directive](#define_d)
 
 Terms        |    Description
 -------------|-----------------
