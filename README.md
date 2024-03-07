@@ -217,6 +217,7 @@ Variables        |  Description
 `.INCLUDE_DIRS`  |  contain the current list of directories that make will search for included files
 `MAKEFILE_LIST`  | Contains the name of each makefile that is parsed by make, in the order in which it was parsed.
 `MAKE_RESTARTS`  | This variable is set only if this instance of make has restarted or remade. it will contain the number of times this instance has restarted
+`.SECONDEXPANSION` | make needs to check the prerequisites of a target, the prerequisites are expanded a second time  for the specify target
 `MAKE_TERMOUT`   | Make stdout variable, if populated make sends to stdout
 `MAKE_TERMERR`   | Make stderr variable, if populated make sends to stderr
 `.VARIABLES`     | Expands to a list of the names of all global variables defined so far.
