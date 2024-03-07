@@ -166,7 +166,10 @@ endef
 
 ## Make Function
 * Declare ->  
-* reference -> 
+* reference ->  $(function arguments ....) or ${function arguments ....}
+ 
+
+
 
 ## Directive
 
