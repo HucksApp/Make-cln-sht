@@ -204,8 +204,7 @@ Function                              |        Description
 `$(subst from,to,text)`     | Performs a textual replacement on the text text: each occurrence of from is replaced by to `$(subst ee,EE,feet on the street)`  -> `fEEt on the strEEt`
 `$(patsubst pattern,replacement,text)` |  Finds whitespace-separated words in text that match pattern and replaces them with replacement `$(patsubst %.c,%.o,x.c.c bar.c)` -> `x.c.o bar.o`
 `$(strip string)`      |  Removes leading and trailing whitespace from string and replaces each internal sequence of one or more whitespace characters with a single space `$(strip a b c )` -> `a b c`
-`$(findstring find,in)` | Searches in for an occurrence of find. If it occurs, the value is find; otherwise, the value is empty `$(findstring a,a b c)` and  `$(findstring a,b c)`
--> `a` and ` ` (the empty string)
+`$(findstring find,in)` | Searches in for an occurrence of find. If it occurs, the value is find; otherwise, the value is empty `$(findstring a,a b c)` and  `$(findstring a,b c)` -> `a` and ` ` (the empty string)
 `$(filter pattern…,text)` | Returns all whitespace-separated words in text that do match any of the pattern words, removing any words that do not match
 `$(filter-out pattern…,text)` | Returns all whitespace-separated words in text that do not match any of the pattern words, removing the words that do match one or more
 `$(sort list)` | Sorts the words of list in lexical order, removing duplicate words. The output is a list of words separated by single spaces `$(sort foo bar lose)` -> `bar foo lose`
