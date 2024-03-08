@@ -189,7 +189,7 @@ my-target:
     @$(call my_func,"example.com",8000)  #function call
 ```
 
-## Make Functions Utils
+## Make Utills Functions 
 
 Function                                         |      syntax and Description
 -------------------------------------------------|------------------------
