@@ -224,8 +224,7 @@ Function                              |        Description
 `$(notdir names…)`    | Extracts all but the directory-part of each file name in names
 `$(suffix names…)`    | Extracts the suffix of each file name in names
 `$(basename names…)`  | Extracts all but the suffix of each file name in names
-`$(addsuffix suffix,names…)` |
-The argument names is regarded as a series of names, separated by whitespace; suffix is used as a unit. The value of suffix is appended to the end of each individual name and the resulting larger names are concatenated with single spaces between them `$(addsuffix .c,foo bar)` ->  `foo.c bar.c`
+`$(addsuffix suffix,names…)` | The argument names is regarded as a series of names, separated by whitespace; suffix is used as a unit. The value of suffix is appended to the end of each individual name and the resulting larger names are concatenated with single spaces between them `$(addsuffix .c,foo bar)` ->  `foo.c bar.c`
 `$(addprefix prefix,names…)` |The argument names is regarded as a series of names, separated by whitespace; prefix is used as a unit. The value of prefix is prepended to the front of each individual name and the resulting larger names are concatenated with single spaces between them `$(addprefix src/,foo bar)` -> `src/foo src/bar`
 `$(join list1,list2)` | Concatenates the two arguments word by word `$(join a b,.c .o)` -> `a.c b.o`
 `$(wildcard pattern)` | The argument pattern is a file name pattern, typically containing wildcard characters (as in shell file name patterns). The result of wildcard is a space-separated list of the names of existing files that match the pattern
