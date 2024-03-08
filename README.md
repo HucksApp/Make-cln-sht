@@ -165,11 +165,72 @@ endef
 ```
 
 ## Make Function
-* Declare ->  
-* reference ->  `$(function arguments ....)` or `${function arguments ....}`
+* Declare ->
+```
+  define my_func
+    $(eval $@_PROTOCOL = "https:")
+    $(eval $@_HOSTNAME = $(1))
+    $(eval $@_PORT = $(2))
+    echo "${$@_PROTOCOL}//${$@_HOSTNAME}:${$@_PORT}/"
+endef
+```
+* reference ->  `$(function coma_seperated_arguments, ., ., )` or `${function coma_seperated_arguments .., ., }`
+
+```
+my-target:
+    @$(call my_func,"example.com",8000)  #function call
+```
  
 
+## Special Characters
+make doesn’t support escaping characters with backslashes or other escape sequences
+Hide them by putting them into variables, then substitute these variables where such characters are wanted
 
+
+```
+comma:= ,
+empty:=
+space:= $(empty) $(empty)
+foo:= a b c
+bar:= $(subst $(space),$(comma),$(foo)) 
+```
+
+## Make inbuilt functions for
+### String Substitution and Analysis
+
+
+Function                              |        Description
+--------------------------------------|--------------------------------
+`$(subst from,to,text)`     | Performs a textual replacement on the text text: each occurrence of from is replaced by to `$(subst ee,EE,feet on the street)`  -> `fEEt on the strEEt`
+`$(patsubst pattern,replacement,text)` |  Finds whitespace-separated words in text that match pattern and replaces them with replacement `$(patsubst %.c,%.o,x.c.c bar.c)` -> `x.c.o bar.o`
+`$(strip string)`      |  Removes leading and trailing whitespace from string and replaces each internal sequence of one or more whitespace characters with a single space.
+`$(findstring find,in)` | Searches in for an occurrence of find. If it occurs, the value is find; otherwise, the value is empty
+`$(filter pattern…,text)` | Returns all whitespace-separated words in text that do match any of the pattern words, removing any words that do not match
+`$(filter-out pattern…,text)` | Returns all whitespace-separated words in text that do not match any of the pattern words, removing the words that do match one or more
+`$(sort list)` | Sorts the words of list in lexical order, removing duplicate words. The output is a list of words separated by single spaces
+`$(word n,text)` | Returns the nth word of text. The legitimate values of n start from 1. If n is bigger than the number of words in text, the value is empty.
+`$(wordlist s,e,text)` | Returns the list of words in text starting with word s and ending with word e 
+`$(words text)` | Returns the number of words in text
+`$(firstword names…)` | The argument names is regarded as a series of names, separated by whitespace. The value is the first name in the series
+`$(lastword names…)` | The argument names is regarded as a series of names, separated by whitespace. The value is the last name in the series
+
+
+### File Name
+
+
+Function                              |        Description
+--------------------------------------|--------------------------------
+`$(dir names…)`       | Extracts the directory-part of each file name in names
+`$(notdir names…)`    | Extracts all but the directory-part of each file name in names
+`$(suffix names…)`    | Extracts the suffix of each file name in names
+`$(basename names…)`  | Extracts all but the suffix of each file name in names
+`$(addsuffix suffix,names…)` |
+The argument names is regarded as a series of names, separated by whitespace; suffix is used as a unit. The value of suffix is appended to the end of each individual name and the resulting larger names are concatenated with single spaces between them `$(addsuffix .c,foo bar)` ->  `foo.c bar.c`
+`$(addprefix prefix,names…)` |The argument names is regarded as a series of names, separated by whitespace; prefix is used as a unit. The value of prefix is prepended to the front of each individual name and the resulting larger names are concatenated with single spaces between them `$(addprefix src/,foo bar)` -> `src/foo src/bar`
+`$(join list1,list2)` | Concatenates the two arguments word by word `$(join a b,.c .o)` -> `a.c b.o`
+`$(wildcard pattern)` | The argument pattern is a file name pattern, typically containing wildcard characters (as in shell file name patterns). The result of wildcard is a space-separated list of the names of existing files that match the pattern
+`$(realpath names…)` | For each file name in names return the canonical absolute name. A canonical name does not contain any . or .. components, nor any repeated path separators (/) or symlinks. In case of a failure the empty string is returned
+`$(abspath names…)` | For each file name in names return an absolute name that does not contain any . or .. components, nor any repeated path separators (/)
 
 ## Directive
 
