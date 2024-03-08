@@ -2,7 +2,7 @@
 
 
 
-# MAKE
+# GNU MAKE
 make can be considered the center of the development process by providing a roadmap of an application’s components and how they fit together.
 
 The exit status of make is always one of three values:
