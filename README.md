@@ -5,7 +5,7 @@
 # MAKE
 make can be considered the center of the development process by providing a roadmap of an application’s components and how they fit together.
 
-<span style="color:red;">The exit status of make is always one of three values:</span>
+The exit status of make is always one of three values:
 
 * 0 -> The exit status is zero if make is successful.
 
