@@ -11,7 +11,7 @@ The exit status of make is always one of three values:
 
 * 2  -> The exit status is two if make encounters any errors. It will print messages describing the particular errors.
 
-* 1  -> The exit status is one if you use the ‘-q’ flag and make determines that some target is not already up to date
+* 1  -> The exit status is one if you use the `-q` flag and make determines that some target is not already up to date
 
 ## makefile 📄
 makefile contains a set of rules or actions (Goals) used to build an application
