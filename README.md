@@ -3,6 +3,14 @@
 # MAKE
 make can be considered the center of the development process by providing a roadmap of an application’s components and how they fit together.
 
+The exit status of make is always one of three values:
+
+* 0  -> The exit status is zero if make is successful.
+
+* 2  -> The exit status is two if make encounters any errors. It will print messages describing the particular errors.
+
+* 1  -> The exit status is one if you use the ‘-q’ flag and make determines that some target is not already up to date
+
 ## makefile 📄
 makefile contains a set of rules or actions (Goals) used to build an application
 **usage**
@@ -192,6 +200,13 @@ call           |  `$(call variable,param,param,…)` -> writing complex expressi
 value          | `$(value variable)` -> provides a way for you to use the value of a variable without having it expanded
 eval           | `$(eval <variable \| function \| expression>)` -> evaluate if its define and expand
 origin         |  `$(origin variable)` -> tell you origin of a variable (where it came from)
+flavor         |`$(flavor variable)` -> tells you the flavor of a variable , recursively expanded variable or Simply Expanded Variable
+error         | `$(error text…)`   -> make raise error function
+warning       | `$(warning text…)` -> make generate warning messages (make do not exit like error)
+info          | `$(info text…)`  -> make function to output informative text to user
+shell         | `$(shell command)` -> make function for spawning a default system shell for execution of parsed shell command or user defined
+
+
 
 
 
