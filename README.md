@@ -165,7 +165,7 @@ endef
 ```
 
 ## Make Function
-* Declare ->
+* Declare -> function args are parsed as `$(0)` -> Function name,   $(1) -> first arg, $(2), .. etc. The variable 
 ```
   define my_func
     $(eval $@_PROTOCOL = "https:")
@@ -180,6 +180,24 @@ endef
 my-target:
     @$(call my_func,"example.com",8000)  #function call
 ```
+
+## Make Functions Utils
+
+Function                                         |      syntax and Description
+-------------------------------------------------|------------------------
+Let            |  `$(let var [var ...],[list],text)`  ->  limits the scope of a variable to the function
+foreach        |  `$(foreach var,list,text)` -> 
+file           |  `$(file op filename[,text])` -> 
+call           |  $(call variable,param,param,…) -> writing complex expression as the value of a variable, then use call to expand it with different values. give make the function execusion feel.
+value          | `$(value variable)` -> provides a way for you to use the value of a variable without having it expanded
+eval           | `$(eval <variable \| function \| expression>)` -> evaluate if its define and expand
+origin         |  `$(origin variable)` -> tell you origin of a variable (where it came from)
+
+
+
+
+
+
  
 
 ## Special Characters
