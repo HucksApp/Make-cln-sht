@@ -28,7 +28,7 @@ makefile contains a set of rules or actions (Goals) used to build an application
 ```
 include filenames…
 ```
-or to neglect File Not Found error if included file do not exists add -
+or to neglect File Not Found error if included file do not exists add `-`
 
 ```
 -include filenames…
