@@ -5,7 +5,7 @@ make can be considered the center of the development process by providing a road
 
 The exit status of make is always one of three values:
 
-* <span styles="color:red;">0</span>  -> The exit status is zero if make is successful.
+* <span style="color:red;">0</span>  -> The exit status is zero if make is successful.
 
 * 2  -> The exit status is two if make encounters any errors. It will print messages describing the particular errors.
 
