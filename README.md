@@ -1,4 +1,4 @@
-
+![GNU_logo](https://github.com/HucksApp/Make-cln-sht/assets/58187974/f33dbb32-04e9-4ed7-8638-6849d954981a)
 
 # MAKE
 make can be considered the center of the development process by providing a roadmap of an application’s components and how they fit together.
