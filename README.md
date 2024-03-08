@@ -45,7 +45,7 @@ The default search directories are in this order (1) /usr/local/include,  (2) /u
 
 targets ... : prerequisites ... <----------------------->
   ... recipe                   # all recipe (shell commands and process) are passed to the shell directly
-  ... ...                      # so recipe syntax should should follow ✅ shell scripting not  ❌ makefile syntax
+  ... ...                      # so recipe syntax should follow ✅ shell scripting not  ❌ makefile syntax
 ```                             
 
 or 
@@ -56,7 +56,7 @@ targets ... : prerequisites ...; recipe
 ```
 or single line using variable expansion
 ```
-myrule = target : ; echo built
+myrule = target : prerequisites ...; recipe
 
 $(myrule)
 ```
